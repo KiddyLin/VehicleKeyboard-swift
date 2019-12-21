@@ -103,12 +103,16 @@ class KeyboardEngine: NSObject {
             }
         case 6:
             if !isMoreType {
-                layout = KeyboardEngine.defaultLast()
+//                layout = KeyboardEngine.defaultLast()
+                ///改
+                layout = KeyboardEngine.defaultNumbersAndLetters()
             } else {
                 layout = KeyboardEngine.defaultSpecial()
             }
         case 7:
-            layout = KeyboardEngine.defaultLast()
+//            layout = KeyboardEngine.defaultLast()
+            ///改
+            layout = KeyboardEngine.defaultNumbersAndLetters()
             
         default: break
         }
@@ -128,7 +132,9 @@ class KeyboardEngine: NSObject {
         switch inputIndex {
         case 0:
             if numberType == PWKeyboardNumType.newEnergy {
-                list = KeyboardEngine.disEnabledKey(keyString: [_STR_MORE, disOkString, _CHAR_TAI], listModel: list, reverseModel:false)
+//                list = KeyboardEngine.disEnabledKey(keyString: [_STR_MORE, disOkString, _CHAR_TAI], listModel: list, reverseModel:false)
+                ///改
+                list = KeyboardEngine.disEnabledKey(keyString: [_STR_MORE, disOkString], listModel: list, reverseModel:false)
             } else {
                 list = KeyboardEngine.disEnabledKey(keyString: [disOkString, _CHAR_TAI], listModel: list, reverseModel:false)
             }
@@ -144,7 +150,9 @@ class KeyboardEngine: NSObject {
             } else if numberType == .airport {
                 list = KeyboardEngine.disEnabledKey(keyString:[_CHAR_HANG, _CHAR_DEL, okString], listModel: list, reverseModel:true)
             } else {
-                list = KeyboardEngine.disEnabledKey(keyString:KeyboardEngine.chStringArray(string: _STR_NUM4_0 + _CHAR_I + disOkString), listModel: list, reverseModel:false)
+//                list = KeyboardEngine.disEnabledKey(keyString:KeyboardEngine.chStringArray(string: _STR_NUM4_0 + _CHAR_I + disOkString), listModel: list, reverseModel:false)
+                ///改
+                list = KeyboardEngine.disEnabledKey(keyString:KeyboardEngine.chStringArray(string: _CHAR_I + disOkString), listModel: list, reverseModel:false)
             }
             
         case 2:
@@ -173,14 +181,19 @@ class KeyboardEngine: NSObject {
             if KeyboardEngine.subString(str: keyString,  start: 0,  length: 2) == "粤Z" {
                 list = KeyboardEngine.disEnabledKey(keyString:KeyboardEngine.chStringArray(string: _CHAR_MACAO + _CHAR_HK + _CHAR_DEL + okString + _STR_MORE), listModel: list, reverseModel:true)
             } else if numberType == .embassy || numberType == .airport || numberType == .newEnergy{
-                list = KeyboardEngine.disEnabledKey(keyString:KeyboardEngine.chStringArray(string: _STR_MORE + disOkString), listModel: list, reverseModel:false)
+//                list = KeyboardEngine.disEnabledKey(keyString:KeyboardEngine.chStringArray(string: _STR_MORE + disOkString), listModel: list, reverseModel:false)
+                ///改
+                list = KeyboardEngine.disEnabledKey(keyString:KeyboardEngine.chStringArray(string: _CHAR_I + _CHAR_O + disOkString), listModel: list, reverseModel:false)
+                
             } else {
                 list = KeyboardEngine.disEnabledKey(keyString:KeyboardEngine.chStringArray(string: _CHAR_MACAO + _CHAR_HK + disOkString + _CHAR_HANG + _CHAR_SHI), listModel: list, reverseModel:false)
             }
             
         case 7:
-             let complete = keyString.count == 8 ? _STR_OK : ""
-            list = KeyboardEngine.disEnabledKey(keyString:KeyboardEngine.chStringArray(string: _STR_NUM + _CHAR_DEL + _STR_DF + complete), listModel: list, reverseModel:true)
+//             let complete = keyString.count == 8 ? _STR_OK : ""
+//            list = KeyboardEngine.disEnabledKey(keyString:KeyboardEngine.chStringArray(string: _STR_NUM + _CHAR_DEL + _STR_DF + complete), listModel: list, reverseModel:true)
+            ///改
+            list = KeyboardEngine.disEnabledKey(keyString:KeyboardEngine.chStringArray(string: _CHAR_I + _CHAR_O + disOkString), listModel: list, reverseModel:false)
             
         default:
             break
