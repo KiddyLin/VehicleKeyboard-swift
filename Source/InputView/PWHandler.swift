@@ -45,6 +45,8 @@ public class PWHandler: NSObject,UICollectionViewDelegate,UICollectionViewDelega
     var inputTextfield :UITextField!
     let keyboardView = PWKeyBoardView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
     var selectView = UIView()
+    ///改
+    var newEngineNumberView = UIView()
     var isSetKeyboard = false//预设值时不设置为第一响应对象
     var view = UIView()
     var collectionView :UICollectionView!
@@ -174,7 +176,11 @@ public class PWHandler: NSObject,UICollectionViewDelegate,UICollectionViewDelega
             backgroundView.layer.masksToBounds = true
             backgroundView.layer.cornerRadius = cornerRadius
             selectView.isUserInteractionEnabled = false
+            ///改
+            newEngineNumberView.isUserInteractionEnabled = false
         }
+        ///改
+        view.addSubview(newEngineNumberView)
         view.addSubview(selectView)
     }
     
@@ -312,6 +318,19 @@ public class PWHandler: NSObject,UICollectionViewDelegate,UICollectionViewDelega
         cell.charLabel.textColor = textColor
         cell.charLabel.font = UIFont.systemFont(ofSize: textFontSize)
         cell.backgroundColor = itemColor
+        ///改
+        if indexPath.row == 7 {
+            //给cell加上新能源标识的边框
+            newEngineNumberView.layer.borderWidth = 1
+            newEngineNumberView.layer.borderColor = UIColor.green.cgColor
+            newEngineNumberView.frame = cell.frame
+            var rightSpace :CGFloat = (maxCount - 1) == selectIndex ? 0 : 0.5
+            if itemSpacing > 0 {
+                rightSpace = 0
+            }
+            newEngineNumberView.center = CGPoint(x: cell.center.x + rightSpace, y: cell.center.y)
+            corners(view: newEngineNumberView, index: maxCount-1)
+        }
         if indexPath.row == selectIndex {
             //给cell加上选中的边框
             selectView.layer.borderWidth = 2
