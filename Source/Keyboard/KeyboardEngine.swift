@@ -103,16 +103,16 @@ class KeyboardEngine: NSObject {
             }
         case 6:
             if !isMoreType {
-//                layout = KeyboardEngine.defaultLast()
-                ///改
-                layout = KeyboardEngine.defaultNumbersAndLetters()
+                layout = KeyboardEngine.defaultLast()
             } else {
                 layout = KeyboardEngine.defaultSpecial()
             }
         case 7:
-//            layout = KeyboardEngine.defaultLast()
-            ///改
-            layout = KeyboardEngine.defaultNumbersAndLetters()
+            if !isMoreType {
+                layout = KeyboardEngine.defaultLast()
+            } else {
+                layout = KeyboardEngine.defaultSpecial()
+            }
             
         default: break
         }
